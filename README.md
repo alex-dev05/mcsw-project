@@ -10,3 +10,6 @@ Importarea schemei si a datelor sakila:
 source C:/poli/master/anu2/mcsw/proiect/sakila-db/sakila-data.sql;
 source C:/poli/master/anu2/mcsw/proiect/sakila-db/sakila-schema.sql;
 
+Clases used
+foaf:Person
+foaf:Project
