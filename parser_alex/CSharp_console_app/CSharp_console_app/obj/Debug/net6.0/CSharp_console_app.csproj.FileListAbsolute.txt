@@ -32,3 +32,4 @@ C:\Poli\Master\Anu2\MCSW\proiect\mcsw-project\parser_alex\CSharp_console_app\CSh
 C:\Poli\Master\Anu2\MCSW\proiect\mcsw-project\parser_alex\CSharp_console_app\CSharp_console_app\obj\Debug\net6.0\ref\CSharp_console_app.dll
 C:\Poli\Master\Anu2\MCSW\proiect\mcsw-project\parser_alex\CSharp_console_app\CSharp_console_app\obj\Debug\net6.0\CSharp_console_app.pdb
 C:\Poli\Master\Anu2\MCSW\proiect\mcsw-project\parser_alex\CSharp_console_app\CSharp_console_app\obj\Debug\net6.0\CSharp_console_app.genruntimeconfig.cache
+C:\Poli\Master\Anu2\MCSW\proiect\mcsw-project\parser_alex\CSharp_console_app\CSharp_console_app\obj\Debug\net6.0\CSharp_console_app.csproj.AssemblyReference.cache

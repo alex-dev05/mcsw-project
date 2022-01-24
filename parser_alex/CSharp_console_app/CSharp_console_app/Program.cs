@@ -25,6 +25,18 @@ namespace HelloWorld
         public int PersonId { get; set; }
     }
 
+    public class Group
+    {
+        public int GroupId { get; set; }
+        public string GroupName { get; set; }
+        public List<Project> Movies { get; set; }
+    }
+
+    public class GroupProject
+    {
+        public int GroupId { get; set; }
+        public int ProjectId { get; set; }
+    }
 
     public class Program
     {
@@ -93,7 +105,25 @@ namespace HelloWorld
                 }
             return list;    
         }
-        
+
+        public static List<Group> SelectFromTableInModelGroup(string table)
+        {
+            MySqlConnection localConn = OpenConnection();
+            var statement = "Select * from " + table + ";";
+            var command = new MySqlCommand(statement, localConn);
+            using MySqlDataReader rdr = command.ExecuteReader();
+
+
+            List<Group> list = new List<Group>();
+            while (rdr.Read())
+            {
+                Group group = new Group();
+                group.GroupId = rdr.GetInt32(0);
+                group.GroupName = rdr.GetString(1);
+                list.Add(group);
+            }
+            return list;
+        }
 
         public static List<ProjectActor> SelectFromTableInModelProjectPerson(string table)
         {
@@ -112,7 +142,25 @@ namespace HelloWorld
                 }
             return list;
             }
-        public static void CreateRdfFile(List<Person> actors, List<Project> movies, List<ProjectActor> moviesActors)
+
+        public static List<GroupProject> SelectFromTableInModelGruopProject(string table)
+        {
+            MySqlConnection localConn = OpenConnection();
+            var statement = "Select * from " + table + ";";
+            var command = new MySqlCommand(statement, localConn);
+            using MySqlDataReader rdr = command.ExecuteReader();
+
+            List<GroupProject> list = new List<GroupProject>();
+            while (rdr.Read())
+            {
+                GroupProject gruopProject = new GroupProject();
+                gruopProject.ProjectId = rdr.GetInt32(0);
+                gruopProject.GroupId = rdr.GetInt32(1);
+                list.Add(gruopProject);
+            }
+            return list;
+        }
+        public static void CreateRdfFile(List<Person> actors, List<Project> movies,List<Group> categories, List<ProjectActor> moviesActors, List<GroupProject> categoryMovies)
         {
             string path = @"C:\Poli\Master\Anu2\MCSW\proiect\mcsw-project\exports\rdf_generated.rdf";
             File.Delete(path);
@@ -137,7 +185,7 @@ namespace HelloWorld
                     sw.WriteLine("\n");
                     foreach (var movie in movies)
                     {
-                        sw.WriteLine("  <rdf:Description rdf:about=\"http://ti.etcti.upt.ro/movies/" + movie.ProjectName.Replace(" ", "-") + "\">");
+                        sw.WriteLine("  <rdf:Description rdf:about=\"http://ti.etcti.upt.ro/movies/" + movie.ProjectName.Replace(" ", "-").ToLower() + "\">");
                         sw.WriteLine("    <rdf:type rdf:resource=\"http://xmlns.com/foaf/0.1/Project\"/>");
                         sw.WriteLine("    <foaf:title>" + movie.ProjectName + "</foaf:title>");
                         sw.WriteLine("    <foaf:description>" + movie.ProjectDescription + "</foaf:description>");
@@ -151,6 +199,22 @@ namespace HelloWorld
                         sw.WriteLine("  </rdf:Description>");
                         
                     }
+                    sw.WriteLine("\n");
+                    foreach (var category in categories)
+                    {
+                        sw.WriteLine("  <rdf:Description rdf:about=\"http://ti.etcti.upt.ro/categories/" + category.GroupName.Replace(" ", "-").ToLower() + "\">");
+                        sw.WriteLine("    <rdf:type rdf:resource=\"http://xmlns.com/foaf/0.1/Project\"/>");
+                        sw.WriteLine("    <foaf:name>" + category.GroupName + "</foaf:name>");
+                        if (!(category.Movies is null || category.Movies.Count == 0))
+                        {
+                            foreach (var movie in category.Movies)
+                            {
+                                sw.WriteLine("<foaf:member rdf:resource=\"http://ti.etcti.upt.ro/movies/" + movie.ProjectName.Replace(" ", "-").ToLower()  + "\"/>");
+                            }
+                        }
+                        sw.WriteLine("  </rdf:Description>");
+
+                    }
                     sw.WriteLine("</rdf:RDF>");
 
                 }
@@ -161,7 +225,9 @@ namespace HelloWorld
         {
             var actors = SelectFromTableInModelPerson("actor");
             var movies = SelectFromTableInModelProject("film");
+            var categories = SelectFromTableInModelGroup("category");
             var moviesActors = SelectFromTableInModelProjectPerson("film_actor");
+            var groupsMovies = SelectFromTableInModelGruopProject("film_category");
 
              foreach (var actor in actors)
                 {
@@ -194,7 +260,24 @@ namespace HelloWorld
                 }
                 movie.Actors = per;
             }
-            CreateRdfFile(actors,movies,moviesActors);
+
+            foreach (var category in categories)
+            {
+                List<Project> mov = new List<Project>();
+                foreach (var movie in movies)
+                {
+                    foreach (var gm in groupsMovies)
+                    {
+                        if (movie.ProjectId == gm.ProjectId && category.GroupId == gm.GroupId)
+                        {
+                            mov.Add(movie);
+                        }
+                    }
+                }
+                category.Movies = mov;
+            }
+
+            CreateRdfFile(actors,movies,categories,moviesActors,groupsMovies);
         }
     }
 }
