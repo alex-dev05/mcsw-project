@@ -23,3 +23,11 @@ foaf:Group
 foaf:Person este clasa ce reprezinta actorii 
 foaf:Project este clasa ce reprezinta filmele
 foaf:Group este clasa ce reprezinta categoriile
+
+
+Librari folosite in C#
+
+RDF
+https://dotnetrdf.org/
+MySQL
+https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials-connection.html
