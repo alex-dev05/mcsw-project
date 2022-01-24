@@ -206,7 +206,7 @@ namespace HelloWorld
                     foreach (var category in categories)
                     {
                         sw.WriteLine("  <rdf:Description rdf:about=\"http://ti.etcti.upt.ro/categories/" + category.GroupName.Replace(" ", "-").ToLower() + "\">");
-                        sw.WriteLine("    <rdf:type rdf:resource=\"http://xmlns.com/foaf/0.1/Project\"/>");
+                        sw.WriteLine("    <rdf:type rdf:resource=\"http://xmlns.com/foaf/0.1/Group\"/>");
                         sw.WriteLine("    <foaf:name>" + category.GroupName + "</foaf:name>");
                         if (!(category.Movies is null || category.Movies.Count == 0))
                         {

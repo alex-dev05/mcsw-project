@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "y5lkjVkKmdADqRkHtRWuTtiM38OzS0UfMsYpglp4c6S+l7K7/70S2YL0NBsHRa9jxcPD+to+yFZ//aYInbtDQQ==",
+  "dgSpecHash": "jARtGK4nPj/FIYcVswRAxCVOEdtYpQvcdhCMlEh+CwweCS191IuJDFcT9Fd9mslJcYrbeHtyHUWou9dOnuJ0tw==",
   "success": true,
-  "projectFilePath": "C:\\Poli\\Master\\Anu2\\MCSW\\proiect\\mcsw-project\\parser_alex\\CSharp_console_app\\CSharp_console_app\\CSharp_console_app.csproj",
+  "projectFilePath": "C:\\Poli\\Master\\Anu2\\MCSW\\proiect\\mcsw-project\\parser\\CSharp_console_app\\CSharp_console_app\\CSharp_console_app.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\alexu\\.nuget\\packages\\anglesharp\\0.16.0\\anglesharp.0.16.0.nupkg.sha512",
     "C:\\Users\\alexu\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",

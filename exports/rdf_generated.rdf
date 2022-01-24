@@ -7096,7 +7096,7 @@
 
 
   <rdf:Description rdf:about="http://ti.etcti.upt.ro/categories/action">
-    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Project"/>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Group"/>
     <foaf:name>Action</foaf:name>
 <foaf:member rdf:resource="http://ti.etcti.upt.ro/movies/amadeus-holy"/>
 <foaf:member rdf:resource="http://ti.etcti.upt.ro/movies/american-circus"/>
@@ -7164,7 +7164,7 @@
 <foaf:member rdf:resource="http://ti.etcti.upt.ro/movies/worst-banger"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://ti.etcti.upt.ro/categories/animation">
-    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Project"/>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Group"/>
     <foaf:name>Animation</foaf:name>
 <foaf:member rdf:resource="http://ti.etcti.upt.ro/movies/alter-victory"/>
 <foaf:member rdf:resource="http://ti.etcti.upt.ro/movies/anaconda-confessions"/>
@@ -7234,7 +7234,7 @@
 <foaf:member rdf:resource="http://ti.etcti.upt.ro/movies/wonka-sea"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://ti.etcti.upt.ro/categories/children">
-    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Project"/>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Group"/>
     <foaf:name>Children</foaf:name>
 <foaf:member rdf:resource="http://ti.etcti.upt.ro/movies/backlash-undefeated"/>
 <foaf:member rdf:resource="http://ti.etcti.upt.ro/movies/bear-graceland"/>
@@ -7298,7 +7298,7 @@
 <foaf:member rdf:resource="http://ti.etcti.upt.ro/movies/zoolander-fiction"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://ti.etcti.upt.ro/categories/classics">
-    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Project"/>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Group"/>
     <foaf:name>Classics</foaf:name>
 <foaf:member rdf:resource="http://ti.etcti.upt.ro/movies/alice-fantasia"/>
 <foaf:member rdf:resource="http://ti.etcti.upt.ro/movies/arizona-bang"/>
@@ -7359,7 +7359,7 @@
 <foaf:member rdf:resource="http://ti.etcti.upt.ro/movies/westward-seabiscuit"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://ti.etcti.upt.ro/categories/comedy">
-    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Project"/>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Group"/>
     <foaf:name>Comedy</foaf:name>
 <foaf:member rdf:resource="http://ti.etcti.upt.ro/movies/airplane-sierra"/>
 <foaf:member rdf:resource="http://ti.etcti.upt.ro/movies/anthem-luke"/>
@@ -7421,7 +7421,7 @@
 <foaf:member rdf:resource="http://ti.etcti.upt.ro/movies/zorro-ark"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://ti.etcti.upt.ro/categories/documentary">
-    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Project"/>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Group"/>
     <foaf:name>Documentary</foaf:name>
 <foaf:member rdf:resource="http://ti.etcti.upt.ro/movies/academy-dinosaur"/>
 <foaf:member rdf:resource="http://ti.etcti.upt.ro/movies/adaptation-holes"/>
@@ -7493,7 +7493,7 @@
 <foaf:member rdf:resource="http://ti.etcti.upt.ro/movies/young-language"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://ti.etcti.upt.ro/categories/drama">
-    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Project"/>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Group"/>
     <foaf:name>Drama</foaf:name>
 <foaf:member rdf:resource="http://ti.etcti.upt.ro/movies/apollo-teen"/>
 <foaf:member rdf:resource="http://ti.etcti.upt.ro/movies/beauty-grease"/>
@@ -7559,7 +7559,7 @@
 <foaf:member rdf:resource="http://ti.etcti.upt.ro/movies/witches-panic"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://ti.etcti.upt.ro/categories/family">
-    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Project"/>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Group"/>
     <foaf:name>Family</foaf:name>
 <foaf:member rdf:resource="http://ti.etcti.upt.ro/movies/african-egg"/>
 <foaf:member rdf:resource="http://ti.etcti.upt.ro/movies/apache-divine"/>
@@ -7632,7 +7632,7 @@
 <foaf:member rdf:resource="http://ti.etcti.upt.ro/movies/willow-tracy"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://ti.etcti.upt.ro/categories/foreign">
-    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Project"/>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Group"/>
     <foaf:name>Foreign</foaf:name>
 <foaf:member rdf:resource="http://ti.etcti.upt.ro/movies/agent-truman"/>
 <foaf:member rdf:resource="http://ti.etcti.upt.ro/movies/alamo-videotape"/>
@@ -7709,7 +7709,7 @@
 <foaf:member rdf:resource="http://ti.etcti.upt.ro/movies/wonderful-drop"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://ti.etcti.upt.ro/categories/games">
-    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Project"/>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Group"/>
     <foaf:name>Games</foaf:name>
 <foaf:member rdf:resource="http://ti.etcti.upt.ro/movies/autumn-crow"/>
 <foaf:member rdf:resource="http://ti.etcti.upt.ro/movies/bulworth-commandments"/>
@@ -7774,7 +7774,7 @@
 <foaf:member rdf:resource="http://ti.etcti.upt.ro/movies/wind-phantom"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://ti.etcti.upt.ro/categories/horror">
-    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Project"/>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Group"/>
     <foaf:name>Horror</foaf:name>
 <foaf:member rdf:resource="http://ti.etcti.upt.ro/movies/ace-goldfinger"/>
 <foaf:member rdf:resource="http://ti.etcti.upt.ro/movies/affair-prejudice"/>
@@ -7834,7 +7834,7 @@
 <foaf:member rdf:resource="http://ti.etcti.upt.ro/movies/zhivago-core"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://ti.etcti.upt.ro/categories/music">
-    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Project"/>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Group"/>
     <foaf:name>Music</foaf:name>
 <foaf:member rdf:resource="http://ti.etcti.upt.ro/movies/alaska-phantom"/>
 <foaf:member rdf:resource="http://ti.etcti.upt.ro/movies/alone-trip"/>
@@ -7889,7 +7889,7 @@
 <foaf:member rdf:resource="http://ti.etcti.upt.ro/movies/youth-kick"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://ti.etcti.upt.ro/categories/new">
-    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Project"/>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Group"/>
     <foaf:name>New</foaf:name>
 <foaf:member rdf:resource="http://ti.etcti.upt.ro/movies/amistad-midsummer"/>
 <foaf:member rdf:resource="http://ti.etcti.upt.ro/movies/angels-life"/>
@@ -7956,7 +7956,7 @@
 <foaf:member rdf:resource="http://ti.etcti.upt.ro/movies/wyoming-storm"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://ti.etcti.upt.ro/categories/sci-fi">
-    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Project"/>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Group"/>
     <foaf:name>Sci-Fi</foaf:name>
 <foaf:member rdf:resource="http://ti.etcti.upt.ro/movies/annie-identity"/>
 <foaf:member rdf:resource="http://ti.etcti.upt.ro/movies/armageddon-lost"/>
@@ -8021,7 +8021,7 @@
 <foaf:member rdf:resource="http://ti.etcti.upt.ro/movies/wonderland-christmas"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://ti.etcti.upt.ro/categories/sports">
-    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Project"/>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Group"/>
     <foaf:name>Sports</foaf:name>
 <foaf:member rdf:resource="http://ti.etcti.upt.ro/movies/aladdin-calendar"/>
 <foaf:member rdf:resource="http://ti.etcti.upt.ro/movies/anonymous-human"/>
@@ -8099,7 +8099,7 @@
 <foaf:member rdf:resource="http://ti.etcti.upt.ro/movies/victory-academy"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://ti.etcti.upt.ro/categories/travel">
-    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Project"/>
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Group"/>
     <foaf:name>Travel</foaf:name>
 <foaf:member rdf:resource="http://ti.etcti.upt.ro/movies/arsenic-independence"/>
 <foaf:member rdf:resource="http://ti.etcti.upt.ro/movies/basic-easy"/>
