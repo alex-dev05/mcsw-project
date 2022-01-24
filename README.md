@@ -33,3 +33,25 @@ MySQL
 https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials-connection.html
 
 Instructiunile SPARQL se pot rula atat in applicatia de tip Console din C#, cat si in GraphDB, importand fisierul generat de applicatia C#.
+
+
+
+Interogare SPARQL
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+#(count(distinct ?tag) as ?count)
+#(group_concat(?cont) as ?contributors)
+SELECT ?CategoryName ?MovieName ?FullName
+WHERE
+{
+?group a foaf:Group .
+?group foaf:name ?CategoryName .
+?group foaf:member ?TitleName .
+?TitleName a foaf:Project .
+?TitleName foaf:title ?MovieName .
+?TitleName foaf:contributors ?Contributors .
+?Contributors a foaf:Person .
+?Contributors foaf:givenname ?GivenName .
+?Contributors foaf:family_name ?FamilyName .
+BIND(concat(?GivenName," ",?FamilyName) AS ?FullName)
+}ORDER BY ?MovieName
+
