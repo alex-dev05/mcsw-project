@@ -37,21 +37,22 @@ Instructiunile SPARQL se pot rula atat in applicatia de tip Console din C#, cat 
 
 
 Interogare SPARQL
+
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 #(count(distinct ?tag) as ?count)
 #(group_concat(?cont) as ?contributors)
-SELECT ?CategoryName ?MovieName ?FullName
+SELECT ?MovieName ?CategoryType ?Description (COUNT(DISTINCT ?Contributors) AS ?NumberOfActors) (GROUP_CONCAT(DISTINCT ?FullName; SEPARATOR = "\n" ) as ?ListOfActors)
 WHERE
 {
+?project a foaf:Project .
+?project foaf:title ?MovieName .
+?project foaf:description ?Description .
+?project foaf:contributors ?Contributors .
 ?group a foaf:Group .
-?group foaf:name ?CategoryName .
-?group foaf:member ?TitleName .
-?TitleName a foaf:Project .
-?TitleName foaf:title ?MovieName .
-?TitleName foaf:contributors ?Contributors .
+?group foaf:member ?project .
+?group foaf:name ?CategoryType .
 ?Contributors a foaf:Person .
 ?Contributors foaf:givenname ?GivenName .
 ?Contributors foaf:family_name ?FamilyName .
 BIND(concat(?GivenName," ",?FamilyName) AS ?FullName)
-}ORDER BY ?MovieName
-
+}GROUP BY ?MovieName ?CategoryType ?Description
