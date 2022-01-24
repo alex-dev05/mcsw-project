@@ -31,3 +31,5 @@ RDF
 https://dotnetrdf.org/
 MySQL
 https://dev.mysql.com/doc/connector-net/en/connector-net-tutorials-connection.html
+
+Instructiunile SPARQL se pot rula atat in applicatia de tip Console din C#, cat si in GraphDB, importand fisierul generat de applicatia C#.
