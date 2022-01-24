@@ -345,16 +345,52 @@ namespace HelloWorld
             CreateRdfFile(actors,movies,categories,moviesActors,groupsMovies);
 
             // create the query
-            string query = "PREFIX foaf: <http://xmlns.com/foaf/0.1/>" +
-                " SELECT ?name WHERE " +
-                "{" +
-                " ?person a foaf:Person." +
-                " ?person foaf:givenname ?name" +
-                " }";
+            string query1 = "PREFIX foaf: <http://xmlns.com/foaf/0.1/> " +
+                "#(count ( distinct ?tag ) as ?count) " +
+                "#( group_concat ( ?cont ) as ?contributors) " +
+                "SELECT ?MovieName ?CategoryType ?Description ( COUNT ( DISTINCT ?Contributors) AS ?NumberOfActors) ( GROUP_CONCAT ( DISTINCT ?FullName; SEPARATOR = \" \" ) as ?ListOfActors ) " +
+                "WHERE " +
+                "{ " +
+                "?project a foaf:Project . " +
+                "?project foaf:title ?MovieName . " +
+                "?project foaf:description ?Description . " +
+                "?project foaf:contributors ?Contributors . " +
+                "?group a foaf:Group . " +
+                "?group foaf:member ?project . " +
+                "?group foaf:name ?CategoryType . " +
+                "?Contributors a foaf:Person . " +
+                "?Contributors foaf:givenname ?GivenName . " +
+                "?Contributors foaf:family_name ?FamilyName . " +
+                "BIND ( concat ( ?GivenName,  \" \", ?FamilyName ) AS ?FullName) " +
+                "} " +
+                "GROUP BY ?MovieName ?CategoryType ?Description";
 
+            string query2 = "PREFIX foaf: <http://xmlns.com/foaf/0.1/> " +
+                "SELECT ( COUNT ( ?CategoryName ) AS ?NumberOfCategories ) ( GROUP_CONCAT ( ?CategoryName; SEPARATOR = \"\\n\") AS ?ListOfCategories ) " +
+                "WHERE " +
+                "{ " +
+                "?group a foaf:Group. " +
+                "?group foaf:name ?CategoryName . " +
+                "} ";
+
+            string query3 = "PREFIX foaf: <http://xmlns.com/foaf/0.1/> "+
+                            "SELECT ?CategoryName( COUNT ( ?MovieTitle ) AS ?NumberOfMoviesPerCategory ) ( GROUP_CONCAT ( ?MovieTitle ; SEPARATOR = \"\n\") AS ?ListOfMovies ) "+
+                            " WHERE " +
+                            " { " +
+                            " ?group a foaf:Group . " +
+                            " ?group foaf:name ?CategoryName . " +
+                            " ?group foaf:member ? MovieName . " +
+                            " ?MovieName a foaf:Project. " +
+                            " ?MovieName foaf:title ?MovieTitle . " +
+                            "} " +
+                            " GROUP BY ?CategoryName";
             // sparql query
-            System.Console.WriteLine("Executam intructiunea SPARQL.");
-            ExecuteSparqlQuery(query);
+            System.Console.WriteLine("Executam intructiunea SPARQL 1.");
+            ExecuteSparqlQuery(query1);
+            System.Console.WriteLine("Executam intructiunea SPARQL 2.");
+            ExecuteSparqlQuery(query2);
+            System.Console.WriteLine("Executam intructiunea SPARQL 3.");
+            ExecuteSparqlQuery(query3);
         }
     }
 }
