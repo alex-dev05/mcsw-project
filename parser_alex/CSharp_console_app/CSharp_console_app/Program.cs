@@ -1,4 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
+using VDS.RDF;
+using VDS.RDF.Query;
+
 namespace HelloWorld
 {
     public class Person
@@ -221,15 +224,72 @@ namespace HelloWorld
             }
         }
 
-        static void Main()
+        public static void ExecuteSparqlQuery( string query)
         {
+            //Define your Graph here - it may be better to use a QueryableGraph if you plan
+            //on making lots of Queries against this Graph as that is marginally more performant
+            IGraph g = new Graph();
+
+            //
+            string path = @"C:\Poli\Master\Anu2\MCSW\proiect\mcsw-project\exports\rdf_generated.rdf";
+            //Load some data into your Graph using the LoadFromFile() extension method
+            g.LoadFromFile(path);
+
+            //Use the extension method ExecuteQuery() to make the query against the Graph
+            try
+            {
+                Object results = g.ExecuteQuery(query);
+                if (results is SparqlResultSet)
+                {
+                    //SELECT/ASK queries give a SparqlResultSet
+                    SparqlResultSet rset = (SparqlResultSet)results;
+                    foreach (SparqlResult r in rset)
+                    {
+                        //Do whatever you want with each Result
+                        System.Console.WriteLine(r.ToString());
+                    }
+                }
+                else if (results is IGraph)
+                {
+                    //CONSTRUCT/DESCRIBE queries give a IGraph
+                    IGraph resGraph = (IGraph)results;
+                    foreach (Triple t in resGraph.Triples)
+                    {
+                        //Do whatever you want with each Triple
+                        System.Console.WriteLine(t.ToString());
+                    }
+                }
+                else
+                {
+                    //If you don't get a SparqlResutlSet or IGraph something went wrong 
+                    //but didn't throw an exception so you should handle it here
+                    Console.WriteLine("ERROR");
+                }
+            }
+            catch (RdfQueryException queryEx)
+            {
+                //There was an error executing the query so handle it here
+                Console.WriteLine(queryEx.Message);
+            }
+
+        }
+
+        static void Main()
+
+        {   // populate the models from DB
+            System.Console.WriteLine("Hranim modelele cu content din baza de date");
+            System.Console.WriteLine("Populam Actors.");
             var actors = SelectFromTableInModelPerson("actor");
+            System.Console.WriteLine("Populam Movies.");
             var movies = SelectFromTableInModelProject("film");
+            System.Console.WriteLine("Populam Categories.");
             var categories = SelectFromTableInModelGroup("category");
             var moviesActors = SelectFromTableInModelProjectPerson("film_actor");
             var groupsMovies = SelectFromTableInModelGruopProject("film_category");
 
-             foreach (var actor in actors)
+            System.Console.WriteLine("Incarcam filmele in care a jucat un anumit actor.");
+            // populate the models from DB
+            foreach (var actor in actors)
                 {
                 List<Project> mov = new List<Project>();
                 foreach (var movie in movies)
@@ -244,7 +304,8 @@ namespace HelloWorld
                 }
                 actor.Movies = mov;
              }
-
+            // populate the models from DB
+            System.Console.WriteLine("Incarcam actorii care au jucat intr-un anumit film");
             foreach (var movie in movies)
             {
                 List<Person> per = new List<Person>();
@@ -261,6 +322,8 @@ namespace HelloWorld
                 movie.Actors = per;
             }
 
+            System.Console.WriteLine("Incarcam filmele care apartin unei anumite categorii.");
+            // populate the models from DB
             foreach (var category in categories)
             {
                 List<Project> mov = new List<Project>();
@@ -277,7 +340,21 @@ namespace HelloWorld
                 category.Movies = mov;
             }
 
+            // create rdf file from models from DB
+            System.Console.WriteLine("Scriem fisierul RDF.");
             CreateRdfFile(actors,movies,categories,moviesActors,groupsMovies);
+
+            // create the query
+            string query = "PREFIX foaf: <http://xmlns.com/foaf/0.1/>" +
+                " SELECT ?name WHERE " +
+                "{" +
+                " ?person a foaf:Person." +
+                " ?person foaf:givenname ?name" +
+                " }";
+
+            // sparql query
+            System.Console.WriteLine("Executam intructiunea SPARQL.");
+            ExecuteSparqlQuery(query);
         }
     }
 }

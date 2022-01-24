@@ -49,6 +49,10 @@
             "MySql.Data": {
               "target": "Package",
               "version": "[8.0.28, )"
+            },
+            "dotNetRDF": {
+              "target": "Package",
+              "version": "[2.7.2, )"
             }
           },
           "imports": [
