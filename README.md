@@ -18,3 +18,8 @@ foaf:Person http://xmlns.com/foaf/spec/#term_Person
 Clases used
 foaf:Person
 foaf:Project
+foaf:Group 
+
+foaf:Person este clasa ce reprezinta actorii 
+foaf:Project este clasa ce reprezinta filmele
+foaf:Group este clasa ce reprezinta categoriile
